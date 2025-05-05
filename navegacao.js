@@ -3,50 +3,84 @@ const rotas = {
     '/': 'login.html',
     '/login': 'login.html',
     '/cadastro': 'cadastro.html',
-    '/home': 'home.html'
+    '/home': 'home.html',
+    '/configuracoes': 'settings.html'
 };
 
 // Função para navegar entre as páginas
 function navegarPara(rota) {
-    window.location.href = rotas[rota] || rotas['/'];
+    const pagina = rotas[rota] || 'login.html';
+    window.location.href = pagina;
 }
 
-// Verificar se está na página de login/cadastro para adicionar os eventos
+// Redireciona para a página inicial correta
 document.addEventListener('DOMContentLoaded', function() {
-    // Link para cadastro na página de login
-    const linkCadastro = document.querySelector('.cadastro a');
-    if (linkCadastro && window.location.pathname.includes('login.html')) {
-        linkCadastro.addEventListener('click', function(e) {
-            e.preventDefault();
-            navegarPara('/cadastro');
-        });
+    const caminhoAtual = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Se acessar a raiz, redireciona para o login
+    if (caminhoAtual === '' || caminhoAtual === 'index.html') {
+        window.location.href = 'login.html';
+        return;
     }
 
-    // Link para login na página de cadastro
-    const linkLogin = document.querySelector('.login-link');
-    if (linkLogin && window.location.pathname.includes('cadastro.html')) {
-        linkLogin.addEventListener('click', function(e) {
-            e.preventDefault();
-            navegarPara('/login');
-        });
-    }
+    // Configura os links de navegação
+    const configurarLinks = () => {
+        // Link para cadastro na página de login
+        const linkCadastro = document.querySelector('.cadastro a');
+        if (linkCadastro) {
+            linkCadastro.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'cadastro.html';
+            });
+        }
 
-    // Redirecionar para home após login/cadastro bem-sucedido
-    const formLogin = document.querySelector('.login-form');
-    if (formLogin) {
-        formLogin.addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Aqui você pode adicionar a lógica de validação do formulário
-            // Se o login/cadastro for bem-sucedido:
-            navegarPara('/home');
-        });
-    }
-});
+        // Link para login na página de cadastro
+        const linkLogin = document.querySelector('.login-link');
+        if (linkLogin) {
+            linkLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.location.href = 'login.html';
+            });
+        }
 
-// Redirecionar para a página inicial se a rota não for encontrada
-window.addEventListener('load', function() {
-    const caminhoAtual = window.location.pathname.split('/').pop();
-    if (!Object.values(rotas).includes(caminhoAtual) && caminhoAtual) {
-        navegarPara('/');
-    }
+        // Link da logo para home
+        const logoLink = document.querySelector('.header-left');
+        if (logoLink) {
+            logoLink.style.cursor = 'pointer';
+            logoLink.addEventListener('click', function() {
+                window.location.href = 'home.html';
+            });
+        }
+    };
+
+    // Configura o formulário de login/cadastro
+    const configurarFormulario = () => {
+        const formLogin = document.querySelector('.login-form');
+        if (formLogin) {
+            formLogin.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Validação do formulário aqui
+                window.location.href = 'home.html';
+            });
+        }
+    };
+
+    // Configura a navegação da navbar
+    const configurarNavbar = () => {
+        document.addEventListener('click', function(e) {
+            const navItem = e.target.closest('.nav-item');
+            if (navItem && !navItem.classList.contains('premium')) {
+                e.preventDefault();
+                const target = navItem.getAttribute('href');
+                if (target && target !== '#') {
+                    window.location.href = target;
+                }
+            }
+        });
+    };
+
+    // Inicializa as configurações
+    configurarLinks();
+    configurarFormulario();
+    configurarNavbar();
 });
