@@ -1,32 +1,33 @@
 // Dicionário de códigos de país
 const codigosPais = {
     'Brasil': '+55',
-    'Estados Unidos': '+1',
     'Portugal': '+351',
+    'Estados Unidos': '+1',
     'Espanha': '+34',
-    'França': '+33'
+    'França': '+33',
+    'Alemanha': '+49',
+    'Itália': '+39',
+    'Reino Unido': '+44',
+    'Canadá': '+1',
+    'Japão': '+81',
+    'Austrália': '+61'
 };
 
 // Função para formatar o número de telefone
 function formatarTelefone(input) {
     if (!input) return;
-    
-    // Obtém o valor atual e remove tudo que não for número
-    let valor = input.value.replace(/\D/g, '');
-    
-    // Se estiver vazio, não faz nada
-    if (!valor) return;
-    
+
     // Obtém o país selecionado
     const selectPais = document.querySelector('.input-pais input');
     const pais = selectPais ? selectPais.value : 'Brasil';
     const codigoPais = codigosPais[pais] || '+55';
-    
-    // Remove o código do país se já estiver incluído
-    const codigoNumerico = codigoPais.replace('+', '');
-    if (valor.startsWith(codigoNumerico)) {
-        valor = valor.substring(codigoNumerico.length);
-    }
+
+    // Remove qualquer código de país do início do valor
+    let valor = input.value.replace(/^\+\d+\s?/, '').replace(/\D/g, '');
+
+    // Se estiver vazio, não faz nada
+    if (!valor) return;
+
     
     // Aplica a formatação baseada no país
     let numeroFormatado = '';

@@ -25,6 +25,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Configura os links de navegação
     const configurarLinks = () => {
+        // Foto ou nome da configuração na home
+        const configNav = document.querySelector('.nav-item img[alt="Configurações"], .nav-item .nav-label');
+        if (configNav) {
+            configNav.style.cursor = 'pointer';
+            configNav.addEventListener('click', function(e) {
+                // Garante que só navega se for configuração
+                if (
+                    e.target.classList.contains('nav-label') && e.target.textContent.trim() === 'Configurações' ||
+                    e.target.getAttribute('alt') === 'Configurações'
+                ) {
+                    window.location.href = 'settings.html';
+                }
+            });
+        }
+
+        // Opção Premium na navbar
+        const premiumNavs = document.querySelectorAll('.nav-item.premium, .premium-card');
+        premiumNavs.forEach(function(premiumEl) {
+            premiumEl.style.cursor = 'pointer';
+            premiumEl.addEventListener('click', function(e) {
+                window.location.href = 'premium.html';
+            });
+        });
         // Link para cadastro na página de login
         const linkCadastro = document.querySelector('.cadastro a');
         if (linkCadastro) {
@@ -69,15 +92,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const configurarNavbar = () => {
         document.addEventListener('click', function(e) {
             const navItem = e.target.closest('.nav-item');
-            if (navItem && !navItem.classList.contains('premium')) {
-                e.preventDefault();
-                const target = navItem.getAttribute('href');
-                if (target && target !== '#') {
-                    window.location.href = target;
+            if (navItem) {
+                if (navItem.classList.contains('premium')) {
+                    e.preventDefault();
+                    window.location.href = 'premium.html';
+                } else {
+                    e.preventDefault();
+                    const target = navItem.getAttribute('href');
+                    if (target && target !== '#') {
+                        window.location.href = target;
+                    }
                 }
             }
         });
     };
+
 
     // Inicializa as configurações
     configurarLinks();
