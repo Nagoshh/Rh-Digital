@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vagas de Emprego</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .vaga { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
+    .logout { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>Bem-vindo às Vagas de Emprego</h1>
+  <div id="lista-vagas"></div>
+  <button class="logout" onclick="logout()">Sair</button>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY",
+      authDomain: "SEU_AUTH_DOMAIN",
+      projectId: "SEU_PROJECT_ID",
+      storageBucket: "SEU_BUCKET",
+      messagingSenderId: "SEU_SENDER_ID",
+      appId: "SEU_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    const listaVagas = document.getElementById("lista-vagas");
+
+    function logout() {
+      signOut(auth).then(() => {
+        window.location.href = "login.html";
+      });
+    }
+
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+        return;
+      }
+
+      const vagasSnap = await getDocs(collection(db, "vagas"));
+      vagasSnap.forEach((doc) => {
+        const vaga = doc.data();
+        const div = document.createElement("div");
+        div.className = "vaga";
+        div.innerHTML = `
+          <h3>${vaga.titulo}</h3>
+          <p><strong>Descrição:</strong> ${vaga.descricao}</p>
+          <p><strong>Local:</strong> ${vaga.local}</p>
+        `;
+        listaVagas.appendChild(div);
+      });
+    });
+  </script>
+</body>
+</html>

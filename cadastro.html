@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Cadastro</title>
   <link rel="stylesheet" href="css/cadastrologin.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -11,14 +10,14 @@
 <body>
   <div class="container">
     <div class="left-panel">
-      <h2 class="frase-imagem">Junte-se a nós fazendo <br> a diferença para o futuro!</h2>
+      <h2 class="frase-imagem">Junte-se a Nós<br>e Transforme o Futuro</h2>
       <img src="img/desenho.png" alt="Imagem Cadastro" class="imagem-login"/>
     </div>
     <div class="right-panel">
-      <form class="login-form">
-        <h3>Crie sua conta</h3>
+      <form class="cadastro-form">
+        <h3>Cadastre-se</h3>
         <div class="input-icon">
-          <img src="img/nome.png" alt="Ícone Usuário" />
+          <img src="img/usuario.png" alt="Ícone Usuário" />
           <input type="text" placeholder="Nome completo" required />
         </div>
         <div class="input-icon">
@@ -29,23 +28,11 @@
           <img src="img/cadeado.png" alt="Ícone Senha" />
           <input type="password" placeholder="Senha" required />
         </div>
-        <div class="linha-campos">
-          <div class="input-pais input-metade">
-            <input type="text" placeholder="País" readonly required />
-          </div>
-          <div class="input-icon input-metade telefone">
-            <img src="img/telefone.png" alt="Ícone Telefone" class="icone-telefone" />
-            <input type="tel" id="telefone" placeholder="(00) 00000-0000" required />
-          </div>
-        </div>
         <button type="submit">Cadastrar</button>
-        <p class="cadastro">Já tem uma conta? <a href="#" class="login-link">Faça login</a></p>
+        <p class="cadastro">Já tem uma conta? <a href="login.html">Faça login</a></p>
       </form>
     </div>
   </div>
-  <script src="paises.js"></script>
-  <script src="telefone.js"></script>
-  <script src="validacao.js"></script>
-  <script src="navegacao.js"></script>
+  <script type="module" src="navegacao.js"></script>
 </body>
 </html>
