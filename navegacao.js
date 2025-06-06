@@ -35,8 +35,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const senha = loginForm.querySelector('input[type="password"]').value;
 
       try {
-        await signInWithEmailAndPassword(auth, email, senha);
-        window.location.href = "vagas.html";
+        if(await signInWithEmailAndPassword(auth, email, senha)) {
+          window.location.href = "./home.html";
+          console.log('logou')
+        }
       } catch (error) {
         alert("Erro ao fazer login: " + error.message);
       }
