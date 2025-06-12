@@ -5,63 +5,256 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vagas de Emprego</title>
   <style>
-    body { font-family: Arial; padding: 20px; }
-    .vaga { border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; border-radius: 5px; }
-    .logout { margin-top: 20px; }
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #000000;
+      --card-bg: #f9f9f9;
+      --hover-bg: rgb(194, 194, 227);
+    }
+
+    body.dark-mode {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --card-bg: #1e1e1e;
+      --hover-bg: #2a2a40;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: var(--card-bg);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .search-container {
+      flex-grow: 1;
+      max-width: 600px;
+    }
+
+    .search-container input {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .toggle-darkmode {
+      padding: 8px 12px;
+      cursor: pointer;
+      background-color: #02fd28;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .secao {
+      padding: 20px;
+    }
+
+    .vaga, .curso {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: var(--card-bg);
+      transition: background-color 0.3s;
+    }
+
+    .vaga:hover, .curso:hover {
+      background-color: var(--hover-bg);
+    }
+
+    .carrossel-container {
+      overflow: hidden;
+      position: relative;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    .carrossel {
+      display: flex;
+      transition: transform 0.30s ease-in-out;
+    }
+
+    .vaga-carrossel {
+      min-width: 300px;
+      margin-right: 10px;
+      border: 1px solid #aaa;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: var(--card-bg);
+    }
+
+    .botao {
+      margin-right: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #ff00ae;
+      color: white;
+      cursor: pointer;
+    }
+
+    .botao:hover {
+      background-color: #0056b3;
+    }
+
+    .botoes {
+      margin-top: 20px;
+      padding: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: var(--card-bg);
+    }
   </style>
 </head>
 <body>
-  <h1>Bem-vindo às Vagas de Emprego</h1>
-  <div id="lista-vagas"></div>
-  <button class="logout" onclick="logout()">Sair</button>
+  <header>
+    <div class="search-container">
+      <input type="text" id="filtroVagas" onkeyup="filtrarVagas()" placeholder="Buscar vaga por título...">
+    </div>
+  </header>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+  <div class="secao">
+    <h2>🔥 Vagas Mais Cotadas</h2>
+    <div id="vagas-cotadas"></div>
+  </div>
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyDgfYNqaeozk6RHkS1Yq2y1EMWgw-s7_5k",
-      authDomain: "rh-digital-8feba.firebaseapp.com",
-      databaseURL: "https://rh-digital-8feba-default-rtdb.firebaseio.com",
-      projectId: "rh-digital-8feba",
-      storageBucket: "rh-digital-8feba.firebasestorage.app",
-      messagingSenderId: "639574019625",
-      appId: "1:639574019625:web:3f7eb7b4cba7e2fad49638",
-      measurementId: "G-MNMZQDQVFX"
-    };
+  <div class="secao">
+    <h2>🎯 Vagas</h2>
+    <div class="carrossel-container">
+      <div id="carrossel" class="carrossel"></div>
+    </div>
+  </div>
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
+  <div class="secao">
+    <h2>🎓 Cursos de Capacitação</h2>
+    <div id="cursos"></div>
+  </div>
 
-    const listaVagas = document.getElementById("lista-vagas");
+  <div class="botoes">
+    <button class="botao" onclick="voltar()">Voltar</button>
+    <button class="botao" onclick="logout()">Sair</button>
+  </div>
 
-    function logout() {
-      signOut(auth).then(() => {
-        window.location.href = "login.html";
+  <footer>
+    <button class="toggle-darkmode" onclick="alternarModo()">Modo Escuro</button>
+  </footer>
+
+  <script>
+    const vagas = [
+      { titulo: "Desenvolvedor Front-End", empresa: "TechCorp", local: "São Paulo, SP", destaque: true },
+      { titulo: "Analista de Dados", empresa: "DataX", local: "Remoto", destaque: true },
+      { titulo: "Designer UX/UI", empresa: "DesignPro", local: "Belo Horizonte, MG" },
+      { titulo: "Engenheiro de Software", empresa: "InovaTech", local: "Curitiba, PR" },
+      { titulo: "Suporte Técnico", empresa: "HelpTI", local: "Fortaleza, CE" }
+    ];
+
+    const cursos = [
+      { nome: "Curso de JavaScript", plataforma: "Alura" },
+      { nome: "Introdução a UX Design", plataforma: "Coursera" },
+      { nome: "Data Analytics com Python", plataforma: "Udemy" }
+    ];
+
+    function carregarVagasCotadas() {
+      const container = document.getElementById("vagas-cotadas");
+      container.innerHTML = "";
+      vagas.filter(v => v.destaque).forEach(vaga => {
+        const div = document.createElement("div");
+        div.className = "vaga";
+        div.innerHTML = `<h3>${vaga.titulo}</h3>
+                         <p><strong>Empresa:</strong> ${vaga.empresa}</p>
+                         <p><strong>Local:</strong> ${vaga.local}</p>`;
+        div.onclick = () => irParaEntrevista(vaga);
+        container.appendChild(div);
       });
     }
 
-    onAuthStateChanged(auth, async (user) => {
-      if (!user) {
-        window.location.href = "login.html";
-        return;
-      }
-
-      const vagasSnap = await getDocs(collection(db, "vagas"));
-      vagasSnap.forEach((doc) => {
-        const vaga = doc.data();
+    function carregarCarrossel() {
+      const carrossel = document.getElementById("carrossel");
+      carrossel.innerHTML = "";
+      vagas.forEach(vaga => {
         const div = document.createElement("div");
-        div.className = "vaga";
-        div.innerHTML = `
-          <h3>${vaga.titulo}</h3>
-          <p><strong>Descrição:</strong> ${vaga.descricao}</p>
-          <p><strong>Local:</strong> ${vaga.local}</p>
-        `;
-        listaVagas.appendChild(div);
+        div.className = "vaga-carrossel";
+        div.innerHTML = `<strong>${vaga.titulo}</strong><br/>
+                         ${vaga.empresa} - ${vaga.local}`;
+        div.onclick = () => irParaEntrevista(vaga);
+        carrossel.appendChild(div);
       });
-    });
+
+      let offset = 0;
+      setInterval(() => {
+        offset = (offset + 1) % vagas.length;
+        carrossel.style.transform = `translateX(-${offset * 310}px)`;
+      }, 3000);
+    }
+
+    function carregarCursos() {
+      const container = document.getElementById("cursos");
+      container.innerHTML = "";
+      cursos.forEach(curso => {
+        const div = document.createElement("div");
+        div.className = "curso";
+        div.innerHTML = `<strong>${curso.nome}</strong><br/>
+                         Plataforma: ${curso.plataforma}`;
+        container.appendChild(div);
+      });
+    }
+
+    function logout() {
+      alert("Você saiu.");
+      window.location.href = "/login.html";
+    }
+
+    function voltar() {
+      alert("Voltando...");
+      window.history.back();
+    }
+
+    function irParaEntrevista(vaga) {
+      alert(`Você escolheu a vaga: ${vaga.titulo}\n(Em breve será direcionado para a entrevista)`);
+    }
+
+    function filtrarVagas() {
+      const termo = document.getElementById("filtroVagas").value.toLowerCase();
+      const vagasFiltradas = vagas.filter(v => v.titulo.toLowerCase().includes(termo));
+      const container = document.getElementById("carrossel");
+      container.innerHTML = "";
+      vagasFiltradas.forEach(vaga => {
+        const div = document.createElement("div");
+        div.className = "vaga-carrossel";
+        div.innerHTML = `<strong>${vaga.titulo}</strong><br/>${vaga.empresa} - ${vaga.local}`;
+        div.onclick = () => irParaEntrevista(vaga);
+        container.appendChild(div);
+      });
+    }
+
+    function alternarModo() {
+      document.body.classList.toggle("dark-mode");
+    }
+
+    window.onload = () => {
+      carregarVagasCotadas();
+      carregarCarrossel();
+      carregarCursos();
+    };
   </script>
 </body>
 </html>
