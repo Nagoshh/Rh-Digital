@@ -17,6 +17,9 @@
   .container {
     display: flex;
     height: 100%;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
   }
   
   .left-panel {
@@ -29,8 +32,8 @@
     position: relative;
     color: white;
     text-align: center;
-    padding: 20px; /* Reduzido para 20px */
-    margin: 20px;
+    padding: 20px;
+    margin: 0;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     overflow: hidden;
@@ -58,13 +61,14 @@
   }
   
   .right-panel {
-    flex: 1.2; /* Aumento sutil */
+    flex: 1.2;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f5f5f5;
-    padding: 30px; /* Aumento sutil */
-    margin: 10px;
+    padding: 20px;
+    margin: 0;
+    border-radius: 20px;
   }
   
   .login-form {
@@ -237,6 +241,7 @@
     border-radius: 10px;
     height: 42px;
     position: relative;
+    min-width: 0;
   }
   
   /* Ajustes para o campo de telefone */
@@ -269,5 +274,83 @@
     height: 18px !important;
     margin-left: 8px !important;
     margin-right: 6px !important;
+  }
+
+  /* Media queries para responsividade e zoom */
+  @media (max-width: 1024px) {
+    .container {
+      flex-direction: column;
+      gap: 15px;
+      padding: 15px;
+    }
+    
+    .left-panel, .right-panel {
+      flex: none;
+      margin: 0;
+    }
+    
+    .left-panel {
+      min-height: 200px;
+      padding: 15px;
+    }
+    
+    .frase-imagem {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+    
+    .imagem-login {
+      max-height: 150px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      gap: 10px;
+      padding: 10px;
+    }
+    
+    .login-form {
+      padding: 20px 15px;
+      max-width: none;
+    }
+    
+    .frase-imagem {
+      font-size: 20px;
+    }
+    
+    .linha-campos {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .input-metade {
+      width: 100%;
+    }
+  }
+
+  @media (max-height: 600px) {
+    .container {
+      padding: 10px;
+      gap: 10px;
+    }
+    
+    .left-panel {
+      padding: 10px;
+    }
+    
+    .frase-imagem {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    
+    .imagem-login {
+      max-height: 100px;
+      margin: 10px 0;
+    }
+    
+    .login-form {
+      padding: 15px;
+    }
   }
   

@@ -1,5 +1,11 @@
 /* premium.css - estilos para a página de planos premium */
 
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f7fb;
+}
+
 .premium-main {
     display: flex;
     flex-direction: column;
