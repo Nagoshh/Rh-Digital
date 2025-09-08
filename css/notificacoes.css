@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f7fb;
+}
+
+.notificacoes-main {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.notificacoes-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1565c0;
+    margin-bottom: 50px;
+}
+
+.notificacoes-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.notificacao-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(21, 101, 192, 0.08);
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+    border-left: 5px solid transparent;
+}
+
+.notificacao-card.nova {
+    background-color: #e3f2fd;
+    border-left-color: #1976d2;
+}
+
+.notificacao-card:hover {
+    background-color: #fafafa;
+}
+
+.notificacao-conteudo h3 {
+    font-size: 1.2rem;
+    color: #0d47a1;
+    margin: 0 0 5px 0;
+}
+
+.notificacao-conteudo p {
+    font-size: 1rem;
+    color: #333;
+    margin: 0;
+}
+
+.notificacao-data {
+    font-size: 0.9rem;
+    color: #666;
+    white-space: nowrap;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .notificacoes-title {
+        font-size: 2rem;
+    }
+
+    .notificacao-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .notificacao-data {
+        margin-left: 0;
+        align-self: flex-end;
+        font-size: 0.8rem;
+        margin-top: 5px;
+    }
+
+    .notificacao-conteudo h3 {
+        font-size: 1.1rem;
+    }
+
+    .notificacao-conteudo p {
+        font-size: 0.95rem;
+    }
+}

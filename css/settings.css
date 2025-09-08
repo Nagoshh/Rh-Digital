@@ -165,3 +165,13 @@ input:checked + .slider:before {
     background-color: #0a66c2;
     border-radius: 50%;
 }
+
+@media (max-width: 768px) {
+    .settings-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .settings-title {
+        font-size: 1.8rem;
+    }
+}

@@ -122,6 +122,28 @@
   text-align: center;
 }
 
+.nav-item.active {
+  color: #0a66c2; /* Cor do texto ativo */
+  position: relative;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #0a66c2;
+  border-radius: 50%;
+}
+
+.nav-item.active .nav-icon {
+  /* Filtro para converter a cor do ícone para #0a66c2 */
+  filter: invert(30%) sepia(98%) saturate(1637%) hue-rotate(191deg) brightness(94%) contrast(91%);
+}
+
 /* Estilo para o botão Premium */
 .nav-item.premium {
   color: #fff;
@@ -313,4 +335,78 @@ body {
   margin: 0 0 15px 0;
   padding-bottom: 10px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+/* === Media Queries para Responsividade === */
+@media (max-width: 1024px) {
+    .header-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px 16px;
+    }
+
+    .header-left {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .header-center {
+        width: 100%;
+        order: 3; /* Manda a busca para baixo */
+        margin: 10px 0 0;
+        max-width: none;
+    }
+
+    .header-nav {
+        width: 100%;
+        justify-content: center;
+        min-width: auto;
+        gap: 4px;
+    }
+
+    .nav-item {
+        padding: 6px 8px;
+        min-width: 50px;
+    }
+
+    .nav-perfil {
+        border-left: none;
+        padding-left: 8px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .publicacoes, .sidebar {
+        width: 100%;
+        max-width: 600px; /* Limita a largura em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-nav {
+        gap: 0;
+    }
+
+    .nav-label {
+        display: none; /* Esconde o texto dos ícones em telas muito pequenas */
+    }
+
+    .nav-item {
+        padding: 8px;
+    }
+
+    .nav-icon {
+        margin-bottom: 0;
+    }
+
+    .nav-item.premium span {
+        font-size: 0.8rem;
+    }
 }
