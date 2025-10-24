@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Rh Digital</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:8px;"><img src="img/Logo.png" alt="Logo" class="logo-img" height="32"><span class="logo-title">Rh Digital</span></a>
+            </div>
+            <div class="header-center">
+                <div class="search-container">
+                    <img src="img/pesquisa.png" alt="Buscar" class="icon search-icon">
+                    <input type="text" placeholder="Pesquisar..." class="search-input">
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="home.html" class="nav-item">
+                    <img src="img/casa.png" alt="Início" class="nav-icon">
+                    <span class="nav-label">Início</span>
+                </a>
+                <a href="vagas.html" class="nav-item">
+                    <img src="img/trabalho.png" alt="Vagas" class="nav-icon">
+                    <span class="nav-label">Vagas</span>
+                </a>
+                <a href="notificacoes.html" class="nav-item">
+                    <img src="img/notificacao.png" alt="Notificações" class="nav-icon">
+                    <span class="nav-label">Notificações</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <img src="img/configuracao.png" alt="Configurações" class="nav-icon">
+                    <span class="nav-label">Configurações</span>
+                </a>
+                <a href="perfil.html" class="nav-item nav-perfil active">
+                    <img src="img/nome.png" alt="Perfil" class="nav-icon perfil-icon">
+                    <span class="nav-label">Perfil</span>
+                </a>
+                <a href="premium.html" class="nav-item premium">
+                     <span>Premium</span>
+                 </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="perfil-main">
+        <div class="perfil-container">
+            <section class="perfil-header card">
+                <div class="cover-photo">
+                    <!-- Imagem de capa -->
+                </div>
+                <div class="profile-picture-container">
+                    <img src="img/nome.png" alt="Foto de Perfil" class="profile-picture">
+                </div>
+                <div class="profile-info">
+                    <h1>Rafa Max</h1>
+                    <p>Aluno no Colégio Bento Quirino</p>
+                    <p class="localizacao">Paulínia, São Paulo, Brasil</p>
+                    <div class="profile-actions">
+                        <button class="btn-principal">Tenho interesse em...</button>
+                        <button class="btn-secundario">Adicionar seção ao perfil</button>
+                        <button class="btn-secundario">Recursos</button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="perfil-body">
+                <div class="perfil-col-main">
+                    <section class="sugestoes card">
+                        <h2>Sugestões para você</h2>
+                        <div class="sugestoes-grid">
+                            <div class="sugestao-item">
+                                <h3>Você trabalha em qual setor?</h3>
+                                <p>Perfis que incluem um setor recebem até 2,5 vezes mais visualizações.</p>
+                                <button class="btn-terciario">Adicionar um setor</button>
+                            </div>
+                            <div class="sugestao-item">
+                                <h3>Adicione uma foto ao perfil</h3>
+                                <p>Perfis que incluem uma foto recebem até 2,3 vezes mais visualizações.</p>
+                                <button class="btn-terciario">Adicionar uma foto</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <div class="perfil-col-sidebar">
+                    <section class="conexoes card">
+                        <h2>Pessoas que talvez você conheça</h2>
+                        <ul class="conexoes-list">
+                            <li class="conexao-item">
+                                <img src="img/nome.png" alt="Foto de Johann">
+                                <div class="conexao-info">
+                                    <h3>Johann Patricio Daniel</h3>
+                                    <p>Estudante do Programa Starter</p>
+                                    <button class="btn-terciario">Conectar</button>
+                                </div>
+                            </li>
+                            <li class="conexao-item">
+                                <img src="img/nome.png" alt="Foto de Felipe">
+                                <div class="conexao-info">
+                                    <h3>Felipe Andreas Silva</h3>
+                                    <p>Full Stack Developer</p>
+                                    <button class="btn-terciario">Conectar</button>
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

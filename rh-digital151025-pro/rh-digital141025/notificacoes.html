@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notificações</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/notificacoes.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:8px;"><img src="img/Logo.png" alt="Logo" class="logo-img" height="32"><span class="logo-title">Rh Digital</span></a>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-container">
+                    <img src="img/pesquisa.png" alt="Buscar" class="icon search-icon">
+                    <input type="text" placeholder="Pesquisar..." class="search-input">
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <a href="home.html" class="nav-item">
+                    <img src="img/casa.png" alt="Início" class="nav-icon">
+                    <span class="nav-label">Início</span>
+                </a>
+                <a href="vagas.html" class="nav-item">
+                    <img src="img/trabalho.png" alt="Vagas" class="nav-icon">
+                    <span class="nav-label">Vagas</span>
+                </a>
+                <a href="notificacoes.html" class="nav-item active">
+                    <img src="img/notificacao.png" alt="Notificações" class="nav-icon">
+                    <span class="nav-label">Notificações</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <img src="img/configuracao.png" alt="Configurações" class="nav-icon">
+                    <span class="nav-label">Configurações</span>
+                </a>
+                <a href="perfil.html" class="nav-item nav-perfil">
+                    <img src="img/nome.png" alt="Perfil" class="nav-icon perfil-icon">
+                    <span class="nav-label">Perfil</span>
+                </a>
+                <a href="premium.html" class="nav-item premium">
+                     <span>Premium</span>
+                 </a>
+            </nav>
+        </div>
+    </header>
+    <main class="notificacoes-main">
+        <h1 class="notificacoes-title">Suas Notificações</h1>
+        <div class="notificacoes-list">
+            <div class="notificacao-card nova">
+                <div class="notificacao-conteudo">
+                    <h3>Nova vaga de Desenvolvedor Back-end</h3>
+                    <p>A empresa InovaTech postou uma nova vaga que corresponde ao seu perfil. Não perca tempo!</p>
+                </div>
+                <span class="notificacao-data">Agora mesmo</span>
+            </div>
+            <div class="notificacao-card">
+                <div class="notificacao-conteudo">
+                    <h3>Seu perfil foi visualizado</h3>
+                    <p>O recrutador da Tech Solutions Inc. visualizou seu perfil para a vaga de Desenvolvedor Front-end.</p>
+                </div>
+                <span class="notificacao-data">Há 2 horas</span>
+            </div>
+            <div class="notificacao-card">
+                <div class="notificacao-conteudo">
+                    <h3>Lembrete: Entrevista amanhã</h3>
+                    <p>Sua entrevista com a Creative Minds para a vaga de Designer UX/UI está agendada para amanhã às 10:00.</p>
+                </div>
+                <span class="notificacao-data">Ontem</span>
+            </div>
+            <div class="notificacao-card">
+                <div class="notificacao-conteudo">
+                    <h3>Atualização na sua candidatura</h3>
+                    <p>Sua candidatura para a vaga de Analista de Dados na Data Insights avançou para a próxima etapa.</p>
+                </div>
+                <span class="notificacao-data">2 dias atrás</span>
+            </div>
+        </div>
+    </main>
+    <script src="js/navegacao.js"></script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - Rh Digital</title>
+    <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:8px;"><img src="img/Logo.png" alt="Logo" class="logo-img" height="32"><span class="logo-title">Rh Digital</span></a>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-container">
+                    <img src="img/pesquisa.png" alt="Buscar" class="icon search-icon">
+                    <input type="text" placeholder="Pesquisar..." class="search-input">
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <a href="home.html" class="nav-item">
+                    <img src="img/casa.png" alt="Início" class="nav-icon">
+                    <span class="nav-label">Início</span>
+                </a>
+                <a href="vagas.html" class="nav-item">
+                    <img src="img/trabalho.png" alt="Vagas" class="nav-icon">
+                    <span class="nav-label">Vagas</span>
+                </a>
+                <a href="notificacoes.html" class="nav-item">
+                    <img src="img/notificacao.png" alt="Notificações" class="nav-icon">
+                    <span class="nav-label">Notificações</span>
+                </a>
+                <a href="settings.html" class="nav-item active">
+                    <img src="img/configuracao.png" alt="Configurações" class="nav-icon">
+                    <span class="nav-label">Configurações</span>
+                </a>
+                <a href="perfil.html" class="nav-item nav-perfil">
+                    <img src="img/nome.png" alt="Perfil" class="nav-icon perfil-icon">
+                    <span class="nav-label">Perfil</span>
+                </a>
+                <a href="premium.html" class="nav-item premium">
+                     <span>Premium</span>
+                 </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="settings-container">
+        <h1 class="settings-title">Configurações</h1>
+        
+        <div class="settings-grid">
+            <!-- Seção de Conta -->
+            <section class="settings-section">
+                <h2 class="section-title">
+                    <img src="img/perfil.png" alt="Conta" class="section-icon">
+                    Conta
+                </h2>
+                <div class="settings-options">
+                    <a href="#" class="settings-option">
+                        <span>Informações Pessoais</span>
+                        <span class="arrow">›</span>
+                    </a>
+                    <a href="#" class="settings-option">
+                        <span>Privacidade</span>
+                        <span class="arrow">›</span>
+                    </a>
+                    <a href="#" class="settings-option">
+                        <span>Segurança</span>
+                        <span class="arrow">›</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Seção de Notificações -->
+            <section class="settings-section">
+                <h2 class="section-title">
+                    <img src="img/notificacao.png" alt="Notificações" class="section-icon">
+                    Notificações
+                </h2>
+                <div class="settings-options">
+                    <div class="settings-option toggle-option">
+                        <span>Notificações por E-mail</span>
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option toggle-option">
+                        <span>Notificações no Navegador</span>
+                        <label class="toggle">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Aparência -->
+            <section class="settings-section">
+                <h2 class="section-title">
+                    <img src="img/configuracao.png" alt="Aparência" class="section-icon">
+                    Aparência
+                </h2>
+                <div class="settings-options">
+                    <div class="settings-option">
+                        <span>Tema</span>
+                        <select class="theme-select">
+                            <option>Claro</option>
+                            <option>Escuro</option>
+                            <option>Sistema</option>
+                        </select>
+                    </div>
+                    <div class="settings-option">
+                        <span>Tamanho da Fonte</span>
+                        <select class="theme-select">
+                            <option>Pequeno</option>
+                            <option selected>Médio</option>
+                            <option>Grande</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Ajuda -->
+            <section class="settings-section">
+                <h2 class="section-title">
+                    <img src="img/suporte.png" alt="Ajuda" class="section-icon">
+                    Ajuda e Suporte
+                </h2>
+                <div class="settings-options">
+                    <a href="#" class="settings-option">
+                        <span>Central de Ajuda</span>
+                        <span class="arrow">›</span>
+                    </a>
+                    <a href="#" class="settings-option">
+                        <span>Fale Conosco</span>
+                        <span class="arrow">›</span>
+                    </a>
+                    <a href="#" class="settings-option">
+                        <span>Termos de Uso</span>
+                        <span class="arrow">›</span>
+                    </a>
+                    <a href="#" class="settings-option">
+                        <span>Política de Privacidade</span>
+                        <span class="arrow">›</span>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="js/validacao.js"></script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+
+/* css/entrevista.css - styles for the interview page */
+body { font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#f7f8fb; margin:0; color:#222; }
+.entrevista-header { background:#fff; padding:12px 20px; box-shadow:0 2px 6px rgba(0,0,0,0.06); }
+.logo { text-decoration:none; color:#333; font-weight:700; }
+.entrevista-main { display:flex; gap:24px; padding:28px; max-width:980px; margin:30px auto; }
+.panel { background:#fff; border-radius:12px; padding:18px; box-shadow:0 6px 20px rgba(16,24,40,0.04); flex:1; }
+.avatar-panel { width:320px; display:flex; flex-direction:column; align-items:center; gap:12px; }
+.avatar-wrap { display:flex; align-items:center; justify-content:center; }
+.avatar-text { text-align:center; font-size:15px; color:#333; }
+.interview-panel { flex:2; display:flex; flex-direction:column; gap:12px; }
+.start-area input { width:70%; padding:10px; border-radius:8px; border:1px solid #ddd; margin-right:8px; }
+.btn { background:#6c63ff; color:#fff; padding:10px 14px; border-radius:8px; border:none; cursor:pointer; }
+.btn:disabled { opacity:0.5; cursor:not-allowed; }
+.mic-btn { padding:10px 12px; border-radius:8px; border:1px solid #ddd; background:#fff; cursor:pointer; }
+.mic-btn.recording { background:#ffdddd; border-color:#ff4d4d; }
+.question-area textarea { width:100%; height:120px; padding:12px; border-radius:8px; border:1px solid #ddd; resize:vertical; }
+.controls { display:flex; gap:8px; align-items:center; }
+.progress { background:#eee; width:100%; height:8px; border-radius:8px; overflow:hidden; margin-bottom:8px; }
+.progress > div { height:100%; width:0%; background:linear-gradient(90deg,#6c63ff,#9b86ff); transition:width 300ms ease; }
+.file-label { display:block; margin:8px 0; padding:10px; border:1px dashed #ccc; border-radius:8px; background:#fafafa; cursor:pointer; }
+.finish-area h3 { margin-top:0; }

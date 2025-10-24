@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f4f7fb;
+}
+
+.vagas-main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.vagas-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1565c0;
+    margin-bottom: 50px;
+}
+
+.vagas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px; /* Aumentando o espaçamento */
+}
+
+.vaga-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(21, 101, 192, 0.1);
+    padding: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.vaga-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(21, 101, 192, 0.2);
+}
+
+.vaga-card h2 {
+    font-size: 1.5rem;
+    color: #0d47a1;
+    margin: 0 0 10px 0;
+}
+
+.vaga-card .empresa {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1976d2;
+    margin-bottom: 5px;
+}
+
+.vaga-card .localizacao {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.vaga-card .descricao {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+.btn-candidatar {
+    background: linear-gradient(135deg, #1565c0 0%, #42a5f5 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    align-self: flex-start;
+}
+
+.btn-candidatar:hover {
+    background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+    box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
+}
+
+.entrevistas-section {
+    margin-top: 80px; /* Espaçamento entre as seções */
+}
+
+.entrevistas-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.entrevista-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(21, 101, 192, 0.1);
+    padding: 30px;
+    border-left: 5px solid #1976d2;
+    display: flex;
+    flex-direction: column;
+}
+
+.entrevista-card h2 {
+    font-size: 1.5rem;
+    color: #0d47a1;
+    margin: 0 0 10px 0;
+}
+
+.entrevista-card .empresa {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1976d2;
+    margin-bottom: 20px;
+}
+
+.entrevista-card .descricao {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.6;
+    flex-grow: 1;
+    margin-bottom: 25px;
+}
+
+.btn-comecar {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+    align-self: flex-start;
+}
+
+.btn-comecar:hover {
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+
+@media (max-width: 768px) {
+    .vagas-title {
+        font-size: 2rem;
+    }
+
+    .vagas-list, .entrevistas-list {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        gap: 25px;
+    }
+}
+

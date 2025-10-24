@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Header */
+.main-header {
+    padding: 20px 0;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+/* Buttons */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #0b5ed7;
+}
+
+.btn-secondary {
+    background-color: #f0f0f0;
+    color: #333;
+}
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+.btn-lg {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 0;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.feature-icon {
+    height: 24px;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+/* How it Works Section */
+.how-it-works {
+    background-color: #e7f1ff;
+    padding: 80px 0;
+}
+
+.how-it-works h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0; /* Remove o espaçamento para controlar com margem */
+    position: relative;
+    padding-bottom: 30px; /* Espaço para os itens com transform */
+}
+
+.step-card {
+    font-size: 1.2rem;
+    padding: 25px;
+    text-align: center;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    color: #0d6efd; /* Cor do texto em azul */
+    margin-left: -30px; /* Sobrepõe os cards */
+    z-index: 1;
+    min-height: 180px; /* Aumentando a altura */
+    justify-content: center; /* Centralizando o conteúdo verticalmente */
+}
+
+.steps .step-card:first-child {
+    margin-left: 0;
+    z-index: 4;
+}
+
+.steps .step-card:nth-child(2) {
+    z-index: 3;
+}
+
+.steps .step-card:nth-child(3) {
+    z-index: 2;
+}
+
+.step-icon {
+    height: 50px;
+    margin-top: 10px;
+}
+
+/* Staggered effect for steps */
+.steps .step-card:nth-child(2) {
+    transform: translateY(30px);
+}
+.steps .step-card:nth-child(4) {
+    transform: translateY(30px);
+}
+
+/* CTA Section */
+.cta {
+    padding: 80px 0;
+}
+
+.cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Illustration Section */
+.illustration {
+    padding: 60px 0;
+    background-color: #cde2ff;
+    border-radius: 20px;
+    margin: 0 20px;
+}
+
+/* Footer */
+.main-footer {
+    padding: 40px 0;
+    background-color: #f8f9fa;
+    color: #666;
+}
+
+.main-footer a {
+    color: #666;
+    text-decoration: none;
+}
+
+.main-footer a:hover {
+    text-decoration: underline;
+}
+
+/* === Media Queries para Responsividade === */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .main-header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .steps {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .steps .step-card,
+    .steps .step-card:nth-child(2),
+    .steps .step-card:nth-child(4) {
+        transform: none;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero .subtitle {
+        font-size: 1rem;
+    }
+
+    .btn-lg {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
+    .how-it-works h2, .cta h2 {
+        font-size: 2rem;
+    }
+}

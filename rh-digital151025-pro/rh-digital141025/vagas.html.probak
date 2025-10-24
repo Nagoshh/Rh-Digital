@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagas</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/vagas.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="home.html" style="text-decoration:none;display:flex;align-items:center;gap:8px;"><img src="img/Logo.png" alt="Logo" class="logo-img" height="32"><span class="logo-title">Rh Digital</span></a>
+            </div>
+            
+            <div class="header-center">
+                <div class="search-container">
+                    <img src="img/pesquisa.png" alt="Buscar" class="icon search-icon">
+                    <input type="text" placeholder="Pesquisar..." class="search-input">
+                </div>
+            </div>
+            
+            <nav class="header-nav">
+                <a href="home.html" class="nav-item">
+                    <img src="img/casa.png" alt="Início" class="nav-icon">
+                    <span class="nav-label">Início</span>
+                </a>
+                <a href="vagas.html" class="nav-item active">
+                    <img src="img/trabalho.png" alt="Vagas" class="nav-icon">
+                    <span class="nav-label">Vagas</span>
+                </a>
+                <a href="notificacoes.html" class="nav-item">
+                    <img src="img/notificacao.png" alt="Notificações" class="nav-icon">
+                    <span class="nav-label">Notificações</span>
+                </a>
+                <a href="settings.html" class="nav-item">
+                    <img src="img/configuracao.png" alt="Configurações" class="nav-icon">
+                    <span class="nav-label">Configurações</span>
+                </a>
+                <a href="perfil.html" class="nav-item nav-perfil">
+                    <img src="img/nome.png" alt="Perfil" class="nav-icon perfil-icon">
+                    <span class="nav-label">Perfil</span>
+                </a>
+                <a href="premium.html" class="nav-item premium">
+                     <span>Premium</span>
+                 </a>
+            </nav>
+        </div>
+    </header>
+    <main class="vagas-main">
+        <h1 class="vagas-title">Vagas Disponíveis</h1>
+        <div class="vagas-list">
+            <div class="vaga-card">
+                <h2>Desenvolvedor Front-end Pleno</h2>
+                <p class="empresa">Tech Solutions Inc.</p>
+                <p class="localizacao">São Paulo, SP (Remoto)</p>
+                <p class="descricao">Estamos procurando um desenvolvedor Front-end talentoso para se juntar à nossa equipe. Você será responsável por desenvolver e manter aplicações web de alta qualidade.</p>
+                <button class="btn-candidatar">Candidatar-se</button>
+            </div>
+            <div class="vaga-card">
+                <h2>Designer UX/UI Sênior</h2>
+                <p class="empresa">Creative Minds</p>
+                <p class="localizacao">Rio de Janeiro, RJ (Híbrido)</p>
+                <p class="descricao">Buscamos um Designer UX/UI experiente para criar interfaces intuitivas e atraentes para nossos produtos digitais. É necessário ter um portfólio sólido.</p>
+                <button class="btn-candidatar">Candidatar-se</button>
+            </div>
+            <div class="vaga-card">
+                <h2>Analista de Dados Júnior</h2>
+                <p class="empresa">Data Insights</p>
+                <p class="localizacao">Belo Horizonte, MG (Presencial)</p>
+                <p class="descricao">Oportunidade para um Analista de Dados júnior para trabalhar com grandes volumes de dados, gerando insights para nossos clientes. Conhecimento em SQL e Python é um diferencial.</p>
+                <button class="btn-candidatar">Candidatar-se</button>
+            </div>
+             <div class="vaga-card">
+                <h2>Gerente de Projetos</h2>
+                <p class="empresa">Innovate Tech</p>
+                <p class="localizacao">Curitiba, PR (Remoto)</p>
+                <p class="descricao">Procuramos um Gerente de Projetos experiente para liderar nossa equipe de desenvolvimento. É essencial ter experiência com metodologias ágeis.</p>
+                <button class="btn-candidatar">Candidatar-se</button>
+            </div>
+        </div>
+
+        <section class="entrevistas-section">
+            <h1 class="vagas-title">Entrevistas Disponíveis</h1>
+            <div class="entrevistas-list">
+                <div class="entrevista-card">
+                    <h2>Desenvolvedor Front-end Pleno</h2>
+                    <p class="empresa">Tech Solutions Inc.</p>
+                    <p class="descricao">A primeira etapa do seu processo seletivo é uma entrevista com nossa IA. Prepare-se para responder perguntas técnicas e comportamentais.</p>
+                    <button class="btn-comecar">Começar Entrevista</button>
+                </div>
+                <div class="entrevista-card">
+                    <h2>Designer UX/UI Sênior</h2>
+                    <p class="empresa">Creative Minds</p>
+                    <p class="descricao">Sua entrevista com IA está pronta. Você terá que apresentar um case e responder a algumas perguntas sobre seu processo de design.</p>
+                    <button class="btn-comecar">Começar Entrevista</button>
+                </div>
+                <div class="entrevista-card">
+                    <h2>Gerente de Projetos</h2>
+                    <p class="empresa">Innovate Tech</p>
+                    <p class="descricao">A entrevista com IA para a vaga de Gerente de Projetos está disponível. Mostre suas habilidades de liderança e gestão.</p>
+                    <button class="btn-comecar">Começar Entrevista</button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="js/navegacao.js"></script>
+<script type="module" src="js/firebase-init.js"></script>
+<script src="js/entrevista-handler.js"></script>
+</body>
+</html>
